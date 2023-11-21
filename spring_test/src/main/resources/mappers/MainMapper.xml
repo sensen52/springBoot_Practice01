@@ -1,0 +1,9 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MainMapper">
+    <select id="getSeinDBMap" resultType="java.util.Map">
+        SELECT * FROM TB_PERSON
+    </select>
+    <!-- 고민4: TB_PERSON 기준으로 insert API, update API, delete API 만들어보기 -->
+</mapper>
