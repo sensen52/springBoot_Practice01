@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -31,11 +32,33 @@ public class MainController {
         return result;
     }
 
+    // 전체 데이터 브라우저 전체 조회
     @ResponseBody
     @GetMapping("/dbData")
-    public Map<String, Object> dbData() {
-        Map<String, Object> result = mainService.getSeinDBMap();
+    public List<Map<String, Object>> dbData() {
+        List<Map<String, Object>> result = mainService.getSeinDBMap();
         return result;
     }
+    
+    //데이터 추가
+    @ResponseBody
+    @PostMapping("insertData")
+    public void insertData(Map<String, Object> data){
+        mainService.getInsertDb(data);
 
+    }
+    //데이터 수정
+    @ResponseBody
+    @PostMapping("updateData")
+    public void updateData(Map<String, Object> data){
+      mainService.getUpdateDb(data);
+
+    }
+    //데이터 삭제
+    @ResponseBody
+    @GetMapping("deleteData")
+    public void deleteData(Map<String,Object> data){
+    mainService.getDeleteDb(data);
+
+    }
 }

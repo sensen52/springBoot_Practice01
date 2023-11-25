@@ -6,4 +6,23 @@
         SELECT * FROM TB_PERSON
     </select>
     <!-- 고민4: TB_PERSON 기준으로 insert API, update API, delete API 만들어보기 -->
+
+    <insert id="insertDb">
+        INSERT INTO TB_PERSON
+        (NAME, AGE)
+        VALUES(#{name},#{age});
+    </insert>
+
+
+    <update id = "updateDb">
+        UPDATE TB_PERSON
+        SET AGE = #{age}
+        WHERE NAME = #{name}
+    </update>
+
+    <delete id = "deleteDb">
+        DELETE FROM TB_PERSON
+        WHERE NAME = #{name}
+    </delete>
+
 </mapper>
